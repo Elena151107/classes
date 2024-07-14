@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+  <script>
+
+      function toLowerCaseArrayFruits(fruits){
+        for (let i = 0; i < fruits.length; i++){
+            let word = fruits[i];
+            word = word.toLowerCase();
+            fruits[i] = word;
+        }
+        return fruits;            
+    }
+
+    function sortFruits(fruits){
+        for (let i = 0; i < fruits.length; i++){
+        for (let j = 0; j < fruits.length; j++){
+            let word1 = fruits[j];
+            let word2 = fruits[j+1];
+            let temp;
+            if (word1 > word2){
+                temp = fruits[j];
+                fruits[j] = fruits[j+1];
+                fruits[j+1] = temp;
+            }
+        }
+    }
+        return fruits;
+    }
+
+    function show(fruits){
+        document.write(sortFruits(fruits));
+    }
+
+    function showUnorderedFruits(fruits){
+        document.write("<ul>");
+            for (let i = 0; i < fruits.length; i++){
+                document.write(`<li>${fruits[i]}</li>`);
+            }
+        document.write("</ul>");
+    }
+
+    function checkFruitInFruits(fruits, nameFruit){
+        let title = nameFruit;
+        title = title.toLowerCase();
+         
+        let indexFruit =  fruits.indexOf(title);
+        document.write(`Index of  Fruits: ${nameFruit} is number:  ${indexFruit}`);
+    }
+
+    let fruits = ["pineapple", "banana","WateRmelon", "Orange", "plum", "AppLe"];
+    let arrayFruits = toLowerCaseArrayFruits(fruits);
+    show(arrayFruits);
+    showUnorderedFruits(arrayFruits);
+    checkFruitInFruits(arrayFruits, "BaNaNa");
+
+    
+
+  </script> 
+   
+</body>
+</html>
