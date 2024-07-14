@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TitleNews</title>
+</head>
+<body>
+<script>
+function PrintNews(title, tags, date){
+    this.title = title;
+    this.tags = tags;
+    this.date = date;
+
+    this.printNews = function(text){
+        let now = new Date(Date.now());
+        let day = new Date(date);
+       let result =  +(Math.trunc((+now - (+day)) / 1000 / 60 / 60 / 24));    
+       alert(result);
+       alert(typeof(result));  
+        
+        let statusDate;
+               
+        if ( result < 2)
+            statusDate = "today";
+        else if (result >= 2 & result < 7)
+            statusDate = `${result} days ago`;
+        else 
+            statusDate = `${day.getFullYear()} -  ${day.getMonth()+1} -  ${day.getDate()}`;
+        
+        document.write(`<h1 style = "font-family: sans-serif">${this.title}</h1>` + 
+        `<p style = "font-style: italic">${statusDate}</p>` + 
+        `<p style = "font-family: sans-serif"</p>${text}</p><br/>` +
+        `<p style = "font-family: sans-serif">${this.tags}</p>`);
+    }
+}
+let news = new PrintNews("What is Lorem Ipsum?", "#lorem #ipsum #text", "2024-07-07");
+
+news.printNews(`Lorem, ipsum dolor sit amet consectetur adipisicing elit.` +
+ `Inventore, doloremque nulla at delectus nobis sed neque quaerat autem deleniti.` + 
+ `Amet, optio enim? Nobis numquam, natus veniam distinctio rerum beatae! Reiciendis.`);
+
+
+</script>
+
+</body>
+</html>
