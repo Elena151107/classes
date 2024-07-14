@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Shape</title>
+</head>
+<body>
+  <script>
+
+    class Shape{
+        #name;
+
+        constructor (a){
+            this.a = a;
+        }
+        info(){
+            return ` - Name shape: ${name} \na = ${this.a}  `;
+        }
+        area(){
+            return undefined;
+        }
+        perimetr(){
+            return undefined;
+        }
+        get name(){
+            return this.#name;
+        }
+        set name(newName){
+            this.#name = newName;
+        }
+    }
+    class Square extends Shape{
+        area(){
+            return `,   Площадь: ` + this.a**2 + `<br/>`;
+        }
+        perimetr(){
+            return `,  Периметр: ` + 4 * this.a + `<br/>`;
+        }
+    }
+    class Rectangle extends Shape{
+        constructor (a,b){
+            super(a);
+            this.b =b;
+        }
+        info(){
+            return super.info() + `, \nb = ${this.b}`;
+        }
+        area(){
+            return `,   Площадь: ` + this.a * this.b;
+        }
+        perimetr(){
+            return  `,   Периметр: ` + 2 * (this.a + this.b) + `<br/>`;
+        }
+    }
+    class Triangle extends Shape{
+      constructor(a,b,c){
+            super(a);
+            this.b = b;
+            this.c = c;
+        }
+        info(){
+            return super.info() + `, \nb = ${this.b}, c = ${this.c}`;
+        }
+        area(){
+            let p = this.a + this.b + this.c;
+            let S = Math.sqrt( p * ( p - this.a) * ( p - this.b) * ( p - this.c));
+            return `,   Площадь: ` + S;
+        }
+        perimetr(){
+            let P = this.a + this.b + this.c;
+            return  `,   Периметр: ` + P + `<br/>`;
+        }
+    }
+    
+    
+
+    let square = new Square(5);
+    square.name = `Square `;
+    document.write(square.name);
+    document.write(`<br/>`);
+    document.write(square.info());
+    document.write(square.area());
+    document.write(square.perimetr());
+    document.write(`<br/>`);
+
+    let rectangle = new Rectangle (4,5);
+    rectangle.name = `Rectangle`;
+    document.write(rectangle.name);
+    document.write(`<br/>`);
+    document.write(rectangle.info());
+    document.write(rectangle.area());
+    document.write(rectangle.perimetr());
+    document.write(`<br/>`);
+
+    let triangle = new Triangle (4,5,6);
+    triangle.name = `Triangle`;
+    document.write(triangle.name);
+    document.write(`<br/>`);
+    document.write(triangle.info());
+    document.write(triangle.area());        
+    document.write(triangle.perimetr());
+
+    let shape = [square, rectangle, triangle];
+    
+    function showInfo(array){
+        document.write(`My array of Shape: <br/>`);
+        for( let i = 0; i < array.length; i++){
+        document.write(array[i].name + array[i].info() + array[i].area() + array[i].perimetr() );
+    }
+}
+    document.write(`<br/>`);
+    showInfo(shape);
+
+  </script>  
+
+</body>
+</html>
