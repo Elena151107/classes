@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-task6-progressbar</title>
+</head>
+<style>
+    button {
+    height: 30px;
+    width: 50%;
+    }
+    #myProgress {
+    width: 50%;
+    background-color: #dddddddf;
+}
+    #myBar {
+    width: 0%;
+    height: 30px;
+    background-color: blue;
+}
+  
+</style>
+<body>
+    <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <br>
+    <button onclick="move()"><b>Add 5 percent</b></button>
+    
+    <script>
+    var width = 0;
+    
+    function move() {
+        if (width <= 100) {
+            var elem = document.getElementById("myBar");
+            width +=5;
+            elem.style.width = width + "%";
+        }
+        if (width == 100)
+            width = 0;
+   }
+    </script>
+    
+</body>
+</html>
