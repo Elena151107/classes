@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ #container {
+    background-color: beige;
+}
+.div {
+    border-bottom: 1px solid black;
+}
+.remove-button {
+    position: relative;
+    float: right;
+    background-color:lightblue;
+    margin-top: 5px; 
+    border-color: grey;
+}
+    </style>
+</head>
+<body>
+  <div id="container">
+    <div class="div">
+      <button class="remove-button">[x]remove</button> 
+      <h3>What is Lorem Ipsum?</h3>      
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+         Earum excepturi molestiae sapiente blanditiis est labore quo non voluptatum
+          sed voluptate eligendi, quis quas, mollitia veritatis pariatur ducimus doloremque, 
+          praesentium quaerat!</p>
+    </div>
+    <div class="div">
+      <button class="remove-button">[x]remove</button> 
+      <h3>Why do use it?</h3>      
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Laboriosam molestias fuga rerum nobis molestiae autem voluptate repellendus
+         illum commodi ab vel, porro facere deserunt inventore dolorem laborum, cum est maxime.</p>
+    </div>
+    <div class="div">
+      <button class="remove-button">[x]remove</button>  
+      <h3>Where does it come from?</h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+         Veritatis placeat odit magni animi nihil odio autem consequuntur
+          modi! Ullam consectetur qui ducimus aut quo tenetur molestiae aliquam, aliquid ex libero.</p>
+    </div>
+  </div>
+    <script>
+  let div = document.querySelectorAll('.div');
+  for(let element of div) {
+    element.onclick = function(){
+        element.remove();
+}
+}
+    </script>
+</body>
+</html>
